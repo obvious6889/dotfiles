@@ -120,6 +120,12 @@ require("lazy").setup({
           },
           follow_current_file = { enabled = true },
         },
+        window = {
+          mappings = {
+            ["l"] = "open",
+            ["h"] = "close_node",
+          },
+        },
       })
     end,
   },

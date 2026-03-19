@@ -34,8 +34,8 @@
 | Key | Action |
 |-----|--------|
 | `Enter` | Open file / expand folder |
-| `l` | Open file / expand folder |
-| `h` | Collapse folder |
+| `l` | Open file / expand folder (custom) |
+| `h` | Collapse folder (custom) |
 | `a` | Add file |
 | `A` | Add directory |
 | `d` | Delete |
