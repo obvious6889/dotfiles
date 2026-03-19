@@ -96,6 +96,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias hsi='history | grep -i'
+
 # --- Environment -------------------------------------------------------------
 export EDITOR='nano'
 export VISUAL='nano'
