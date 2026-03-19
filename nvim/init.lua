@@ -144,6 +144,11 @@ require("lazy").setup({
       { "<leader>fb", "<cmd>Telescope buffers<CR>",     desc = "Buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<CR>",   desc = "Help tags" },
     },
+    opts = {
+      defaults = {
+        preview = { treesitter = false },
+      },
+    },
   },
 
   -- Treesitter (better syntax highlighting)
