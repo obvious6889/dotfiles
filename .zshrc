@@ -107,6 +107,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 alias hsi='history | grep -i'
+alias v='nvim'
 
 # --- Environment -------------------------------------------------------------
 export EDITOR='nano'
