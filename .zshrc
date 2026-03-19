@@ -30,6 +30,16 @@ setopt GLOB_DOTS              # include dotfiles in globbing
 setopt EXTENDED_GLOB          # extended globbing patterns
 setopt NO_BEEP                # silence all bells
 
+# --- Auto-suggestions --------------------------------------------------------
+if [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -f "$HOME/brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "$HOME/brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+
 # --- Completion --------------------------------------------------------------
 autoload -Uz compinit && compinit
 setopt COMPLETE_IN_WORD       # complete from both ends of a word
