@@ -2,6 +2,11 @@
 # .zshrc — Zsh configuration
 # =============================================================================
 
+# --- Homebrew (must be first to set PATH) ------------------------------------
+if [[ "$OSTYPE" == "darwin"* ]] && [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # --- History -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -96,13 +101,6 @@ export LC_ALL='en_US.UTF-8'
 
 # Preserve existing PATH additions
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-
-# Homebrew (macOS)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [[ -x "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  fi
-fi
 
 # --- Functions ---------------------------------------------------------------
 
