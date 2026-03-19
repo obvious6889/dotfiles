@@ -3,8 +3,13 @@
 # =============================================================================
 
 # --- Homebrew (must be first to set PATH) ------------------------------------
-if [[ "$OSTYPE" == "darwin"* ]] && [[ -x "/opt/homebrew/bin/brew" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  for brew_path in /opt/homebrew/bin/brew /usr/local/bin/brew "$HOME/brew/bin/brew"; do
+    if [[ -x "$brew_path" ]]; then
+      eval "$("$brew_path" shellenv)"
+      break
+    fi
+  done
 fi
 
 # --- History -----------------------------------------------------------------
