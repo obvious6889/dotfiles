@@ -135,6 +135,45 @@ extract() {
 # Quick find by name
 f() { find . -name "*$1*" 2>/dev/null }
 
+# --- macOS Finder integration ------------------------------------------------
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Open current directory in Finder
+  ofd() { open . }
+
+  # Return path of frontmost Finder window
+  pfd() {
+    osascript 2>/dev/null <<EOF
+      tell application "Finder"
+        return POSIX path of (target of first window as alias)
+      end tell
+EOF
+  }
+
+  # Return current Finder selection
+  pfs() {
+    osascript 2>/dev/null <<EOF
+      tell application "Finder"
+        set sel to (get selection)
+        if sel is {} then return
+        set paths to {}
+        repeat with f in sel
+          set end of paths to POSIX path of (f as alias)
+        end repeat
+        return paths
+      end tell
+EOF
+  }
+
+  # cd to current Finder directory
+  cdf() { cd "$(pfd)" }
+
+  # pushd to current Finder directory
+  pushdf() { pushd "$(pfd)" }
+
+  # Open man page in Preview
+  man-preview() { man -t "$@" | open -f -a Preview }
+fi
+
 # --- Startup directory -------------------------------------------------------
 cd ~/claude
 
