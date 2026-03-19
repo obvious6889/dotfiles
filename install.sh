@@ -17,8 +17,12 @@ if [[ "$OS" == "Darwin" ]]; then
   echo ">>> Installing neovim and starship via Homebrew..."
   brew install neovim starship
 elif [[ "$OS" == "Linux" ]]; then
-  echo ">>> Installing starship..."
-  curl -sS https://starship.rs/install.sh | sh -s -- --yes
+  if ! command -v starship &>/dev/null; then
+    echo ">>> Installing starship..."
+    curl -sS https://starship.rs/install.sh | sh -s -- --yes
+  else
+    echo ">>> starship already installed, skipping."
+  fi
   if ! command -v nvim &>/dev/null; then
     echo ">>> nvim not found — install it manually (apt/snap/etc.) then re-run"
     exit 1
