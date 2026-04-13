@@ -206,7 +206,18 @@ require("lazy").setup({
   -- Comment toggling
   {
     "numToStr/Comment.nvim",
-    config = true,
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    config = function()
+      require("ts_context_commentstring").setup({ enable_autocmd = false })
+      require("Comment").setup({
+        pre_hook = function(ctx)
+          local ok, cs = pcall(
+            require("ts_context_commentstring.internal").calculate_commentstring
+          )
+          return (ok and cs ~= nil and cs) or vim.bo.commentstring
+        end,
+      })
+    end,
   },
 
   -- Which-key (shows available keybindings)
