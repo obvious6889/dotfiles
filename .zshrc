@@ -115,6 +115,13 @@ alias mv='mv -i'
 alias hsi='history | grep -i'
 alias v='nvim'
 
+# bat replaces cat (Debian/Ubuntu ships bat as 'batcat')
+if command -v bat &>/dev/null; then
+  alias cat='bat'
+elif command -v batcat &>/dev/null; then
+  alias cat='batcat'
+fi
+
 # --- Environment -------------------------------------------------------------
 # Use Neovim as the default editor to match the shell-setup workflow.
 export EDITOR='nvim'

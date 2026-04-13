@@ -80,6 +80,7 @@
 | `vf [query]` | Open file in nvim via fzf (tab for multi-select, optional pre-filter) |
 | `zi [query]` | Interactive zoxide directory picker (also bound to `Ctrl+F`) |
 | `hsi [pattern]` | Search shell history case-insensitively |
+| `cat [file]` | Alias to `bat` — syntax-highlighted output with line numbers and git changes |
 
 ### Zsh (macOS only)
 
