@@ -2,6 +2,10 @@
 -- init.lua — Neovim configuration
 -- =============================================================================
 
+-- Leader keys must be set BEFORE lazy.nvim loads (fix #2)
+vim.g.mapleader      = " "
+vim.g.maplocalleader = " "
+
 -- --- Options -----------------------------------------------------------------
 local opt = vim.opt
 
@@ -40,9 +44,6 @@ opt.timeoutlen     = 300           -- faster key sequence timeout
 opt.clipboard      = "unnamedplus" -- sync with system clipboard
 
 -- --- Keymaps -----------------------------------------------------------------
-vim.g.mapleader      = " "
-vim.g.maplocalleader = " "
-
 local map = vim.keymap.set
 
 -- Better window navigation
@@ -51,15 +52,15 @@ map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
--- Keep cursor centered when scrolling
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "n",     "nzzzv")
-map("n", "N",     "Nzzzv")
+-- Keep cursor centered when scrolling (fix #5 — added desc)
+map("n", "<C-d>", "<C-d>zz",  { desc = "Scroll down (centered)" })
+map("n", "<C-u>", "<C-u>zz",  { desc = "Scroll up (centered)" })
+map("n", "n",     "nzzzv",    { desc = "Next search result (centered)" })
+map("n", "N",     "Nzzzv",    { desc = "Prev search result (centered)" })
 
--- Move selected lines up/down in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+-- Move selected lines up/down in visual mode (fix #5 — added desc)
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- Don't overwrite clipboard when pasting over selection
 map("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting clipboard" })
@@ -95,7 +96,7 @@ require("lazy").setup({
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     config = function()
-      require("gruvbox").setup({ contrast = "hard" })
+      require("gruvbox").setup({ contrast = "hard", transparent_mode = true })
       vim.cmd.colorscheme("gruvbox")
     end,
   },
@@ -112,19 +113,20 @@ require("lazy").setup({
     config = function()
       require("neo-tree").setup({
         close_if_last_window = true,
-        window = { width = 30 },
+        -- fix #1 — merged both window blocks into one
+        window = {
+          width = 30,
+          mappings = {
+            ["l"] = "open",
+            ["h"] = "close_node",
+          },
+        },
         filesystem = {
           filtered_items = {
             hide_dotfiles   = false,
             hide_gitignored = false,
           },
           follow_current_file = { enabled = true },
-        },
-        window = {
-          mappings = {
-            ["l"] = "open",
-            ["h"] = "close_node",
-          },
         },
       })
     end,
@@ -139,22 +141,34 @@ require("lazy").setup({
     end,
   },
 
-  -- Fuzzy finder
+  -- Fuzzy finder (fix #3 — consistent 2-space indent inside plugin table)
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- suggestion #6 — fzf native for faster sorting (requires `brew install make` / build tools)
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<CR>",  desc = "Find files" },
       { "<leader>fg", "<cmd>Telescope live_grep<CR>",   desc = "Live grep" },
       { "<leader>fb", "<cmd>Telescope buffers<CR>",     desc = "Buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<CR>",   desc = "Help tags" },
+      -- Git keys
+      { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "Git branches (switch)" },
+      { "<leader>gs", "<cmd>Telescope git_status<CR>",   desc = "Git status" },
+      { "<leader>gc", "<cmd>Telescope git_commits<CR>",  desc = "Git commits" },  -- suggestion #4
     },
-    opts = {
-      defaults = {
-        preview = { treesitter = false },
-      },
-    },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          preview = { treesitter = false },
+        },
+      })
+      -- load fzf extension (suggestion #6)
+      pcall(require("telescope").load_extension, "fzf")
+    end,
   },
 
   -- Treesitter (better syntax highlighting)
@@ -200,3 +214,4 @@ require("lazy").setup({
   },
 
 })
+

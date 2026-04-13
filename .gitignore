@@ -1,0 +1,28 @@
+# Claude Code local settings (contains personal tool permissions)
+.claude/
+CLAUDE.md
+
+# Secrets and credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*.env
+.env.*
+secrets.*
+*_secret*
+*_token*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Backups created by install.sh
+*.bak-pre-dotfiles
+
+# Editor swap/temp files
+*.swp
+*.swo
+*~

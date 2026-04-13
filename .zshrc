@@ -60,9 +60,15 @@ bindkey '^[[F' end-of-line               # End
 bindkey '^[[3~' delete-char              # Delete key
 bindkey '^[[1;5C' forward-word           # ctrl+right
 bindkey '^[[1;5D' backward-word          # ctrl+left
+bindkey '^F' _zi_fwd                     # ctrl+f: zoxide interactive directory picker (widget defined after zoxide init)
 
 # --- Prompt ------------------------------------------------------------------
 eval "$(starship init zsh)"
+
+# --- Zoxide ------------------------------------------------------------------
+eval "$(zoxide init zsh)"
+_zi_fwd() { zi; zle reset-prompt }
+zle -N _zi_fwd
 
 # --- Aliases -----------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -110,8 +116,9 @@ alias hsi='history | grep -i'
 alias v='nvim'
 
 # --- Environment -------------------------------------------------------------
-export EDITOR='nano'
-export VISUAL='nano'
+# Use Neovim as the default editor to match the shell-setup workflow.
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 export LESS='-R'             # pass color codes through in less
 export LANG='en_US.UTF-8'
@@ -145,8 +152,16 @@ extract() {
   fi
 }
 
-# Quick find by name
-f() { find . -name "*$1*" 2>/dev/null }
+# Quick find by name (uses fd for speed, color, and .gitignore awareness)
+f() { fd "$@" }
+
+# Open file in nvim via fzf (tab for multi-select, optional query arg)
+vf() {
+  local files
+  files=$(fzf --multi \
+    --preview 'bat --color=always {}' \
+    --query="$1") && nvim "${(f)files}"
+}
 
 # --- macOS Finder integration ------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then

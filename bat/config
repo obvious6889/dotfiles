@@ -1,0 +1,14 @@
+# bat configuration
+# https://github.com/sharkdp/bat
+
+# Match neovim gruvbox (hard contrast) colorscheme
+--theme=gruvbox-dark
+
+# UI: git change indicators + filename header
+--style=changes,header-filename
+
+# Enable italic text rendering
+--italic-text=always
+
+# Pager settings (flags inherited from $LESS env var)
+--pager=less
