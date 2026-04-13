@@ -15,6 +15,7 @@
 | `Space+gb` | Git branches (Telescope) |
 | `Space+gs` | Git status (Telescope) |
 | `Space+gc` | Git commits (Telescope) |
+| `Space+q` | Quit without saving |
 | `Space+p` | Paste without overwriting clipboard |
 | `Shift+H` | Previous buffer |
 | `Shift+L` | Next buffer |

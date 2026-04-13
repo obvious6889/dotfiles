@@ -68,6 +68,9 @@ map("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting clipboard" }
 -- Clear search highlight
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Quit without saving
+map("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit without saving" })
+
 -- Neo-tree toggle
 map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<leader>o", "<cmd>Neotree focus<CR>",  { desc = "Focus file explorer" })
