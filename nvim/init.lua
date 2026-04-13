@@ -79,6 +79,9 @@ map("n", "<leader>o", "<cmd>Neotree focus<CR>",  { desc = "Focus file explorer" 
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<cmd>bnext<CR>",     { desc = "Next buffer" })
 
+-- --- Filetype overrides ------------------------------------------------------
+vim.filetype.add({ extension = { tfvars = "terraform" } })
+
 -- --- Bootstrap lazy.nvim -----------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
