@@ -94,7 +94,7 @@ alias du='du -h'
 alias free='free -h'
 
 # tmux shortcuts
-alias ta='tmux -CC attach'
+alias ta='tmux attach'
 alias tl='tmux ls'
 
 # git shortcuts
