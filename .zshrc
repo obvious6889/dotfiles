@@ -170,6 +170,11 @@ vf() {
     --query="$1") && nvim "${(f)files}"
 }
 
+# SSH with password from pass store (usage: s user@host or s host)
+s() {
+  SSHPASS="$(pass show ssh/personal)" sshpass -e ssh "$@"
+}
+
 # --- macOS Finder integration ------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Open current directory in Finder
