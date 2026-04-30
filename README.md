@@ -1,13 +1,15 @@
 # shell-setup
 
-Personal shell and editor configuration for zsh, Starship, and Neovim.
+Personal shell and editor configuration for zsh, Starship, Neovim, tmux, and Ghostty.
 
 ## What's included
 
 - `.zshrc`: Zsh configuration (history, aliases, keybindings, functions)
 - `starship.toml`: Starship prompt configuration using a gruvbox-dark palette
 - `nvim/init.lua`: Neovim configuration (lazy.nvim, neo-tree, Telescope, Treesitter, lualine, gruvbox)
-- `KEYBINDINGS.md`: Quick reference for Neovim and zsh keys/commands
+- `.tmux.conf`: tmux configuration (prefix `C-a`, mouse, vi copy mode, per-window logging, plugins)
+- `ghostty/config`: Ghostty terminal configuration (theme, font, opacity, keybinds)
+- `KEYBINDINGS.md`: Quick reference for Neovim, zsh, and tmux keys/commands
 
 The prompt and editor both use a gruvbox-aligned look for visual consistency.
 
@@ -18,6 +20,31 @@ The prompt and editor both use a gruvbox-aligned look for visual consistency.
 | Tool | Why it is needed |
 | ---- | ---------------- |
 | `zoxide` | Smart directory jumping (`zi`, also mapped to `Ctrl+F`) |
+
+### Ghostty config (no dependencies)
+
+Ghostty must already be installed. The installer only links the config file.
+
+> **Font:** `MesloLGS Nerd Font Mono` must be installed on the machine. Download from [nerdfonts.com](https://www.nerdfonts.com/).
+> **Blur:** `background-blur-radius` works on macOS and Linux compositors that support blur (GNOME with blur plugin, KWin). Silently ignored otherwise.
+
+### Installed by `install.sh` when tmux is selected
+
+| Tool | Why it is needed |
+| ---- | ---------------- |
+| `tmux` | Terminal multiplexer |
+| `xclip` | Clipboard integration in copy mode (Linux only) |
+| `tpm` | Plugin manager — cloned to `~/.tmux/plugins/tpm` |
+
+Plugins installed via TPM:
+
+| Plugin | Purpose |
+| ------ | ------- |
+| `tmux-sensible` | Sane defaults |
+| `tmux-resurrect` | Save/restore sessions across reboots (`C-a C-s` / `C-a C-r`) |
+| `tmux-continuum` | Auto-save sessions every 15 min |
+
+> **Airgapped machines:** pack plugins with `tar czf tmux-plugins.tar.gz -C ~ .tmux/plugins` and `scp` to the remote. No internet needed after that.
 
 ### Installed by `install.sh` when Neovim is selected
 
@@ -48,7 +75,9 @@ The installer will:
 1. Ask what to install:
    - Option 1: Starship and `.zshrc`
    - Option 2: Neovim config and dependencies
-   - Option 3: Both
+   - Option 3: tmux config and plugins
+   - Option 4: Ghostty config
+   - Option 5: All
 2. Install Homebrew on macOS if needed
 3. Install selected packages
 4. Back up existing `~/.zshrc` to `~/.zshrc.bak-pre-dotfiles` (if present)
@@ -69,6 +98,7 @@ Then open a new terminal. If Neovim was installed, run `nvim` once so plugins ca
   - On Debian/Ubuntu, installer creates compatibility links when needed:
     - `fdfind` -> `~/.local/bin/fd`
     - `batcat` -> `~/.local/bin/bat`
+  - tmux option installs `tmux` + `xclip` via the detected package manager.
 
 ## Font requirement
 
@@ -106,3 +136,6 @@ No extra copy step is needed because symlinks keep config live.
 | `starship.toml` | `~/.config/starship.toml` |
 | `nvim/init.lua` | `~/.config/nvim/init.lua` |
 | `bat/config` | `~/.config/bat/config` |
+| `.tmux.conf` | `~/.tmux.conf` |
+| `ghostty/config` | `~/Library/Application Support/com.mitchellh.ghostty/config` (macOS) |
+| `ghostty/config` | `~/.config/ghostty/config` (Linux) |

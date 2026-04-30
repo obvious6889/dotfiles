@@ -1,0 +1,16 @@
+background-opacity = 0.75
+background-blur-radius = 20
+theme = Gruvbox Material Dark
+shell-integration = zsh
+font-family = MesloLGS Nerd Font Mono
+font-size = 16
+window-height = 48
+window-width = 150
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+confirm-close-surface = false
+
+# Tab switching (cross-platform alternative to Cmd+Shift+[/])
+keybind = ctrl+page_up=previous_tab
+keybind = ctrl+page_down=next_tab

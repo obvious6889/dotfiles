@@ -20,16 +20,20 @@ echo ""
 
 # --- Menu --------------------------------------------------------------------
 echo "What would you like to install?"
-echo "  1) Install starship and update .zshrc"
-echo "  2) Install and configure neovim"
-echo "  3) Both"
+echo "  1) Starship + .zshrc"
+echo "  2) Neovim"
+echo "  3) tmux"
+echo "  4) Ghostty"
+echo "  5) All"
 echo ""
-read -rp "Enter choice [1/2/3]: " CHOICE
+read -rp "Enter choice [1/2/3/4/5]: " CHOICE
 
 case "$CHOICE" in
-  1) DO_STARSHIP=true;  DO_NEOVIM=false ;;
-  2) DO_STARSHIP=false; DO_NEOVIM=true  ;;
-  3) DO_STARSHIP=true;  DO_NEOVIM=true  ;;
+  1) DO_STARSHIP=true;  DO_NEOVIM=false; DO_TMUX=false; DO_GHOSTTY=false ;;
+  2) DO_STARSHIP=false; DO_NEOVIM=true;  DO_TMUX=false; DO_GHOSTTY=false ;;
+  3) DO_STARSHIP=false; DO_NEOVIM=false; DO_TMUX=true;  DO_GHOSTTY=false ;;
+  4) DO_STARSHIP=false; DO_NEOVIM=false; DO_TMUX=false; DO_GHOSTTY=true  ;;
+  5) DO_STARSHIP=true;  DO_NEOVIM=true;  DO_TMUX=true;  DO_GHOSTTY=true  ;;
   *) echo "Invalid choice. Exiting."; exit 1 ;;
 esac
 
@@ -53,6 +57,10 @@ if [[ "$OS" == "Darwin" ]]; then
     echo ">>> Installing neovim CLI dependencies (ripgrep, fd, bat, fzf)..."
     brew install ripgrep fd bat fzf
   fi
+  if [[ "$DO_TMUX" == true ]]; then
+    echo ">>> Installing tmux via Homebrew..."
+    brew install tmux xclip 2>/dev/null || brew install tmux
+  fi
 
 elif [[ "$OS" == "Linux" ]]; then
   if [[ "$DO_STARSHIP" == true ]]; then
@@ -67,6 +75,24 @@ elif [[ "$OS" == "Linux" ]]; then
       curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
     else
       echo ">>> zoxide already installed, skipping."
+    fi
+  fi
+  if [[ "$DO_TMUX" == true ]]; then
+    if ! command -v tmux &>/dev/null; then
+      echo ">>> Installing tmux..."
+      if command -v apt-get &>/dev/null; then
+        sudo apt-get update -qq && sudo apt-get install -y tmux xclip
+      elif command -v dnf &>/dev/null; then
+        sudo dnf install -y tmux xclip
+      elif command -v yum &>/dev/null; then
+        sudo yum install -y tmux xclip
+      elif command -v pacman &>/dev/null; then
+        sudo pacman -S --noconfirm tmux xclip
+      else
+        echo ">>> WARNING: Could not detect package manager. Install tmux + xclip manually."
+      fi
+    else
+      echo ">>> tmux already installed, skipping."
     fi
   fi
   if [[ "$DO_NEOVIM" == true ]]; then
@@ -132,6 +158,43 @@ if [[ "$DO_NEOVIM" == true ]]; then
   ln -sf "$DOTFILES_DIR/bat/config" "$HOME/.config/bat/config"
 fi
 
+if [[ "$DO_TMUX" == true ]]; then
+  if [[ -f "$HOME/.tmux.conf" && ! -L "$HOME/.tmux.conf" ]]; then
+    echo ">>> Backing up ~/.tmux.conf to ~/.tmux.conf.bak-pre-dotfiles..."
+    cp "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak-pre-dotfiles"
+  fi
+
+  echo ">>> Linking .tmux.conf..."
+  ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+
+  echo ">>> Creating ~/tmux-logs/ for per-window logs..."
+  mkdir -p "$HOME/tmux-logs"
+
+  if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+    echo ">>> Installing TPM (Tmux Plugin Manager)..."
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  else
+    echo ">>> TPM already installed, skipping."
+  fi
+fi
+
+if [[ "$DO_GHOSTTY" == true ]]; then
+  if [[ "$OS" == "Darwin" ]]; then
+    GHOSTTY_CONFIG_DIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
+  else
+    GHOSTTY_CONFIG_DIR="$HOME/.config/ghostty"
+  fi
+
+  if [[ -f "$GHOSTTY_CONFIG_DIR/config" && ! -L "$GHOSTTY_CONFIG_DIR/config" ]]; then
+    echo ">>> Backing up Ghostty config to ${GHOSTTY_CONFIG_DIR}/config.bak-pre-dotfiles..."
+    cp "$GHOSTTY_CONFIG_DIR/config" "$GHOSTTY_CONFIG_DIR/config.bak-pre-dotfiles"
+  fi
+
+  echo ">>> Linking Ghostty config..."
+  mkdir -p "$GHOSTTY_CONFIG_DIR"
+  ln -sf "$DOTFILES_DIR/ghostty/config" "$GHOSTTY_CONFIG_DIR/config"
+fi
+
 echo ""
 echo ">>> Done!"
 if [[ "$DO_STARSHIP" == true ]]; then
@@ -145,5 +208,15 @@ if [[ "$DO_NEOVIM" == true ]]; then
   echo ">>> bat provides syntax-highlighted previews — installed ✅"
   echo ">>> bat config linked (~/.config/bat/config) — gruvbox-dark theme ✅"
   echo ">>> fzf powers fuzzy file/directory pickers (vf, zi) — installed ✅"
+fi
+if [[ "$DO_TMUX" == true ]]; then
+  echo ">>> .tmux.conf linked (~/.tmux.conf) ✅"
+  echo ">>> Per-window logs go to ~/tmux-logs/ ✅"
+  echo ">>> Prefix is C-a. Reload config: C-a r"
+  echo ">>> TPM installed — press C-a I inside tmux to install plugins."
+fi
+if [[ "$DO_GHOSTTY" == true ]]; then
+  echo ">>> Ghostty config linked ✅"
+  echo ">>> Reload in Ghostty: Cmd+Shift+, (macOS) or Ctrl+Shift+, (Linux)"
 fi
 
