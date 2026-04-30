@@ -172,7 +172,10 @@ vf() {
 
 # SSH with password from pass store (usage: s user@host or s host)
 s() {
-  SSHPASS="$(pass show ssh-passwd)" sshpass -e ssh "$@"
+  SSHPASS="$(pass show ssh-passwd)" sshpass -e ssh \
+    -o PreferredAuthentications=keyboard-interactive,password \
+    -o PubkeyAuthentication=no \
+    "$@"
 }
 
 # --- macOS Finder integration ------------------------------------------------
