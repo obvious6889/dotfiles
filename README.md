@@ -7,7 +7,7 @@ Personal shell and editor configuration for zsh, Starship, Neovim, tmux, and Gho
 - `.zshrc`: Zsh configuration (history, aliases, keybindings, functions)
 - `starship.toml`: Starship prompt configuration using a gruvbox-dark palette
 - `nvim/init.lua`: Neovim configuration (lazy.nvim, neo-tree, Telescope, Treesitter, lualine, gruvbox)
-- `.tmux.conf`: tmux configuration (prefix `C-a`, mouse, vi copy mode, per-window logging, plugins)
+- `.tmux.conf`: tmux configuration (prefix `C-a`, mouse, vi copy mode, per-window logging, plugins, `Ctrl+S` SSH shortcut)
 - `ghostty/config`: Ghostty terminal configuration (theme, font, opacity, keybinds)
 - `KEYBINDINGS.md`: Quick reference for Neovim, zsh, and tmux keys/commands
 
@@ -35,6 +35,8 @@ Ghostty must already be installed. The installer only links the config file.
 | `tmux` | Terminal multiplexer |
 | `xclip` | Clipboard integration in copy mode (Linux only) |
 | `tpm` | Plugin manager — cloned to `~/.tmux/plugins/tpm` |
+| `sshpass` | Auto-fill SSH password from pass store (Linux only) |
+| `pass` + `gnupg2` | Encrypted password store for `Ctrl+S` SSH shortcut (Linux only) |
 
 Plugins installed via TPM:
 
@@ -44,7 +46,7 @@ Plugins installed via TPM:
 | `tmux-resurrect` | Save/restore sessions across reboots (`C-a C-s` / `C-a C-r`) |
 | `tmux-continuum` | Auto-save sessions every 15 min |
 
-> **Airgapped machines:** pack plugins with `tar czf tmux-plugins.tar.gz -C ~ .tmux/plugins` and `scp` to the remote. No internet needed after that.
+> **Airgapped machines:** see `tmux/server-setup.md` for the full replication guide.
 
 ### Installed by `install.sh` when Neovim is selected
 
@@ -99,6 +101,8 @@ Then open a new terminal. If Neovim was installed, run `nvim` once so plugins ca
     - `fdfind` -> `~/.local/bin/fd`
     - `batcat` -> `~/.local/bin/bat`
   - tmux option installs `tmux` + `xclip` via the detected package manager.
+  - SSH password shortcut (`Ctrl+S`) requires manual setup of `pass` + `sshpass` — see `tmux/server-setup.md`.
+  - Add `stty -ixon` to `.zshrc` on remote servers to prevent `Ctrl+S` being swallowed by terminal flow control.
 
 ## Font requirement
 
