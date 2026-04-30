@@ -155,7 +155,7 @@ Prefix key: `C-a` (hold Ctrl, tap a)
 | --- | ------ |
 | `C-a r` | Reload `~/.tmux.conf` |
 | `C-a ?` | Show all keybindings |
-| `M-s` | SSH to hostname in clipboard (no prefix) |
+| `C-s` | SSH to hostname in clipboard (no prefix) |
 | `C-a t` | Show clock |
 
 ### Zsh (macOS only)
