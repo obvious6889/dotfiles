@@ -20,7 +20,7 @@ echo ""
 
 # --- Menu --------------------------------------------------------------------
 echo "What would you like to install?"
-echo "  1) Starship + .zshrc"
+echo "  1) Starship + zoxide + .zshrc"
 echo "  2) Neovim"
 echo "  3) tmux"
 echo "  4) Ghostty"
