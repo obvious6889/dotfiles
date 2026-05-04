@@ -1,5 +1,5 @@
 background-opacity = 0.75
-background-blur-radius = 20
+background-blur-radius = 30 
 theme = Gruvbox Material Dark
 shell-integration = zsh
 font-family = MesloLGS Nerd Font Mono
