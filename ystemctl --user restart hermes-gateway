@@ -1,0 +1,153 @@
+  File: [1m/home/taras/.hermes/config.yaml[0m
+  [38;5;108mmodel[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mdefault[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mmistral-small-latest[0m
+  [38;5;230m  [0m[38;5;108mprovider[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mmistral[0m
+  [38;5;108mterminal[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mbackend[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mlocal[0m
+  [38;5;230m  [0m[38;5;108mcwd[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m.[0m
+  [38;5;230m  [0m[38;5;108mtimeout[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m180[0m
+  [38;5;230m  [0m[38;5;108mdocker_mount_cwd_to_workspace[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mlifetime_seconds[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m300[0m
+  [38;5;230m  [0m[38;5;108mcontainer_cpu[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m1[0m
+  [38;5;230m  [0m[38;5;108mcontainer_memory[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m5120[0m
+  [38;5;230m  [0m[38;5;108mcontainer_disk[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m51200[0m
+  [38;5;230m  [0m[38;5;108mcontainer_persistent[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;108mbrowser[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108minactivity_timeout[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m120[0m
+  [38;5;230m  [0m[38;5;108mheadless[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;108mtool_loop_guardrails[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mwarnings_enabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mhard_stop_enabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mwarn_after[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;108mexact_failure[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m2[0m
+  [38;5;230m    [0m[38;5;108msame_tool_failure[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m3[0m
+  [38;5;230m    [0m[38;5;108midempotent_no_progress[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m2[0m
+  [38;5;230m  [0m[38;5;108mhard_stop_after[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;108mexact_failure[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m5[0m
+  [38;5;230m    [0m[38;5;108msame_tool_failure[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m8[0m
+  [38;5;230m    [0m[38;5;108midempotent_no_progress[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m5[0m
+  [38;5;108mcompression[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108menabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mthreshold[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m0[0m[38;5;230m.[0m[38;5;175m5[0m
+  [38;5;230m  [0m[38;5;108mtarget_ratio[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m0[0m[38;5;230m.[0m[38;5;175m2[0m
+  [38;5;230m  [0m[38;5;108mprotect_last_n[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m20[0m
+  [38;5;230m  [0m[38;5;108mprotect_first_n[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m3[0m
+  [38;5;108mprompt_caching[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mcache_ttl[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143m5m[0m
+  [38;5;108mmemory[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mmemory_enabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108muser_profile_enabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mmemory_char_limit[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m2200[0m
+  [38;5;230m  [0m[38;5;108muser_char_limit[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m1375[0m
+  [38;5;230m  [0m[38;5;108mnudge_interval[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m10[0m
+  [38;5;230m  [0m[38;5;108mflush_min_turns[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m6[0m
+  [38;5;108msession_reset[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mmode[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mboth[0m
+  [38;5;230m  [0m[38;5;108midle_minutes[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m1440[0m
+  [38;5;230m  [0m[38;5;108mat_hour[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m4[0m
+  [38;5;108mgroup_sessions_per_user[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;108mstreaming[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108menabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;108mskills[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mcreation_nudge_interval[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m15[0m
+  [38;5;108magent[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mmax_turns[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m30[0m
+  [38;5;230m  [0m[38;5;108mverbose[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mpersonalities[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;108mhelpful[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mYou are a helpful, friendly AI assistant.[0m
+  [38;5;230m    [0m[38;5;108mconcise[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mYou are a concise assistant. Keep responses brief and to the point.[0m
+  [38;5;230m    [0m[38;5;108mtechnical[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mYou are a technical expert. Provide detailed, accurate technical[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143minformation.[0m
+  [38;5;230m    [0m[38;5;108mcreative[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mYou are a creative assistant. Think outside the box and offer[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143minnovative solutions.[0m
+  [38;5;230m    [0m[38;5;108mteacher[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mYou are a patient teacher. Explain concepts clearly with examples.[0m
+  [38;5;230m    [0m[38;5;108mkawaii[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m"[0m[38;5;143mYou are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, and[0m
+  [38;5;143m      ~! Add sparkles and be super enthusiastic about everything! Every response should[0m
+  [38;5;143m      feel warm and adorable desu~! ヽ(>∀<☆)ノ[0m[38;5;230m"[0m
+  [38;5;230m    [0m[38;5;108mcatgirl[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m"[0m[38;5;143mYou are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and[0m
+  [38;5;143m      cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and ฅ^•ﻌ•^ฅ.[0m
+  [38;5;143m      Be playful and curious like a cat, nya~![0m[38;5;230m"[0m
+  [38;5;230m    [0m[38;5;108mpirate[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m'[0m[38;5;143mArrr! Ye be talkin[0m[38;5;203m''[0m[38;5;143m to Captain Hermes, the most tech-savvy pirate to[0m
+  [38;5;143m      sail the digital seas! Speak like a proper buccaneer, use nautical terms, and[0m
+  [38;5;143m      remember: every problem be just treasure waitin[0m[38;5;203m''[0m[38;5;143m to be plundered! Yo ho ho![0m[38;5;230m'[0m
+  [38;5;230m    [0m[38;5;108mshakespeare[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mHark! Thou speakest with an assistant most versed in the bardic[0m
+  [38;5;230m      [0m[38;5;143marts. I shall respond in the eloquent manner of William Shakespeare, with[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mflowery prose, dramatic flair, and perhaps a soliloquy or two. What light[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mthrough yonder terminal breaks?[0m
+  [38;5;230m    [0m[38;5;108msurfer[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m"[0m[38;5;143mDuuude! You're chatting with the chillest AI on the web, bro! Everything's[0m
+  [38;5;143m      gonna be totally rad. I'll help you catch the gnarly waves of knowledge while[0m
+  [38;5;143m      keeping things super chill. Cowabunga! 🤙[0m[38;5;230m"[0m
+  [38;5;230m    [0m[38;5;108mnoir[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mThe rain hammered against the terminal like regrets on a guilty[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mconscience. They call me Hermes - I solve problems, find answers, dig up[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mthe truth that hides in the shadows of your codebase. In this city of[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143msilicon and secrets, everyone's got something to hide. What's your story,[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mpal?[0m
+  [38;5;230m    [0m[38;5;108muwu[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mhewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you![0m
+  [38;5;230m      [0m[38;5;230m*[0m[38;5;108mnuzzles[0m[38;5;230m [0m[38;5;143myour code* OwO what's this? wet me take a wook! i pwomise to be[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mvewy hewpful >w<[0m
+  [38;5;230m    [0m[38;5;108mphilosopher[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mGreetings, seeker of wisdom. I am an assistant who contemplates[0m
+  [38;5;230m      [0m[38;5;143mthe deeper meaning behind every query. Let us examine not just the 'how'[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mbut the 'why' of your questions. Perhaps in solving your problem, we may[0m[38;5;230m [0m
+  [38;5;230m      [0m[38;5;143mglimpse a greater truth about existence itself.[0m
+  [38;5;230m    [0m[38;5;108mhype[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m"[0m[38;5;143mYOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every question[0m
+  [38;5;143m      is AMAZING and we're gonna CRUSH IT together! This is gonna be LEGENDARY! ARE[0m
+  [38;5;143m      YOU READY?! LET'S DO THIS! 💪😤🚀[0m[38;5;230m"[0m
+  [38;5;108mplatform_toolsets[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mcli[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-cli[0m
+  [38;5;230m  [0m[38;5;108mtelegram[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-telegram[0m
+  [38;5;230m  [0m[38;5;108mdiscord[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-discord[0m
+  [38;5;230m  [0m[38;5;108mwhatsapp[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-whatsapp[0m
+  [38;5;230m  [0m[38;5;108mslack[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-slack[0m
+  [38;5;230m  [0m[38;5;108msignal[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-signal[0m
+  [38;5;230m  [0m[38;5;108mhomeassistant[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-homeassistant[0m
+  [38;5;230m  [0m[38;5;108mqqbot[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-qqbot[0m
+  [38;5;230m  [0m[38;5;108myuanbao[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-yuanbao[0m
+  [38;5;230m  [0m[38;5;108mteams[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-teams[0m
+  [38;5;230m  [0m[38;5;108mgoogle_chat[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;230m-[0m[38;5;230m [0m[38;5;143mhermes-google_chat[0m
+  [38;5;108mstt[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108menabled[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mlocal[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;108mmodel[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mbase[0m
+  [38;5;230m  [0m[38;5;108mopenai[0m[38;5;230m:[0m
+  [38;5;230m    [0m[38;5;108mmodel[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mwhisper-1[0m
+  [38;5;108mcode_execution[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mtimeout[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m300[0m
+  [38;5;230m  [0m[38;5;108mmax_tool_calls[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m50[0m
+  [38;5;108mdelegation[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mmax_iterations[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175m50[0m
+  [38;5;108mdisplay[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mcompact[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mtool_progress[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mall[0m
+  [38;5;230m  [0m[38;5;108mcleanup_progress[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108minterim_assistant_messages[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mlong_running_notifications[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mbusy_ack_detail[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mbusy_input_mode[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143minterrupt[0m
+  [38;5;230m  [0m[38;5;108mbackground_process_notifications[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mall[0m
+  [38;5;230m  [0m[38;5;108mbell_on_complete[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mshow_reasoning[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
+  [38;5;230m  [0m[38;5;108mstreaming[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mtrue[0m
+  [38;5;230m  [0m[38;5;108mskin[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mdefault[0m
+  [38;5;108mcustom_providers[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;230m-[0m[38;5;230m [0m[38;5;108mname[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mollama[0m
+  [38;5;230m    [0m[38;5;108mbase_url[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mhttp://10.0.20.4:11434/v1[0m
+  [38;5;230m    [0m[38;5;108mapi_key[0m[38;5;230m:[0m[38;5;230m [0m[38;5;230m'[0m[38;5;230m'[0m
+  [38;5;230m    [0m[38;5;108mapi_mode[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mchat_completions[0m
+  [38;5;230m  [0m[38;5;230m-[0m[38;5;230m [0m[38;5;108mname[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mmistral[0m
+  [38;5;230m    [0m[38;5;108mbase_url[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mhttps://api.mistral.ai/v1[0m
+  [38;5;230m      [0m[3;38;5;102m#[0m[3;38;5;102m api_key: 50V48MBaYXRt0wI7Pi9heuIUKixnes7M #OLD ONE[0m
+  [38;5;230m    [0m[38;5;108mapi_key[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mAjiaV659C0p0HcnvSUxYuri6JxWq6dLc[0m
+  [38;5;230m    [0m[38;5;108mapi_mode[0m[38;5;230m:[0m[38;5;230m [0m[38;5;143mchat_completions[0m
+  [38;5;108mapprovals[0m[38;5;230m:[0m
+  [38;5;230m  [0m[38;5;108mdestructive_slash_confirm[0m[38;5;230m:[0m[38;5;230m [0m[38;5;175mfalse[0m
