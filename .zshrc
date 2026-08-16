@@ -220,5 +220,7 @@ EOF
   man-preview() { man -t "$@" | open -f -a Preview }
 fi
 
+# fuzzy command history search
+source <(fzf --zsh)
 
 # =============================================================================
