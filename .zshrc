@@ -178,6 +178,9 @@ s() {
     "$@"
 }
 
+# fuzzy command history search
+source <(fzf --zsh)
+
 # --- macOS Finder integration ------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Open current directory in Finder
